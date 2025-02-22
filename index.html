@@ -3,116 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Personal Portfolio</title>
+    <title>John Doe - Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
         }
 
         body {
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -.022em;
+            background-color: #000;
+            color: #fff;
         }
 
         nav {
-            background-color: #2c3e50;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
             z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
 
         nav a {
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            margin-right: 1.5rem;
-            font-weight: 500;
+            font-size: 0.85rem;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #3498db;
+            color: #fff;
         }
 
-        header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 8rem 2rem;
+            padding: 0 2rem;
+            background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.07143;
+            font-weight: 600;
+            letter-spacing: -.005em;
+            margin-bottom: 0.5rem;
         }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .hero p {
+            font-size: 28px;
+            line-height: 1.10722;
+            font-weight: 400;
+            letter-spacing: .004em;
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        .container {
-            max-width: 1000px;
+        .section {
+            padding: 100px 2rem;
+            max-width: 980px;
             margin: 0 auto;
-            padding: 4rem 2rem;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2rem;
-            color: #2c3e50;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .profile-img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 48px;
+            line-height: 1.08349;
+            font-weight: 600;
+            letter-spacing: -.003em;
+            margin-bottom: 50px;
             text-align: center;
         }
 
-        .projects-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .project-card {
-            background: white;
-            border-radius: 10px;
+            background: #1a1a1a;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .project-card img {
@@ -122,153 +117,198 @@
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 17px;
+            line-height: 1.47059;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 18px;
+        }
+
+        .about-text {
+            font-size: 21px;
+            line-height: 1.381;
+            font-weight: 400;
+            letter-spacing: .011em;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .contact-form {
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 17px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            background: rgba(255, 255, 255, 0.15);
+            outline: none;
         }
 
         .form-group textarea {
             height: 150px;
+            resize: vertical;
         }
 
         .submit-btn {
-            background-color: #3498db;
-            color: white;
+            background: #0071e3;
+            color: #fff;
             padding: 1rem 2rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 980px;
+            font-size: 17px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            width: 100%;
         }
 
         .submit-btn:hover {
-            background-color: #2980b9;
+            background: #0077ED;
+            transform: scale(1.02);
         }
 
         footer {
-            background-color: #2c3e50;
-            color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 4rem 2rem;
+            background: #1a1a1a;
         }
 
         .social-links {
-            margin-top: 1rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             margin: 0 1rem;
+            font-size: 1.5rem;
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
         }
 
         @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            header {
-                padding: 4rem 1rem;
+            .hero h1 {
+                font-size: 40px;
             }
 
-            .container {
-                padding: 2rem 1rem;
+            .hero p {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-content {
+                padding: 0 1rem;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-content">
+            <a href="#" style="font-weight: 600;">John Doe</a>
+            <div>
+                <a href="#about">About</a>
+                <a href="#projects" style="margin: 0 2rem;">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <header id="home">
-        <h1>John Doe</h1>
-        <p>Full Stack Developer & UI/UX Designer</p>
-    </header>
+    <section class="hero">
+        <h1>Developer. Designer.<br>Problem Solver.</h1>
+        <p>Creating digital experiences that matter.</p>
+    </section>
 
-    <div class="container" id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
+    <section class="section" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
             <img src="/api/placeholder/400/400" alt="John Doe" class="profile-img">
-            <div>
-                <p>Hello! I'm a passionate developer with 5 years of experience in creating web applications and digital experiences. I specialize in JavaScript, React, and Node.js, with a keen eye for design and user experience.</p>
-                <p>Currently based in San Francisco, I enjoy building projects that combine clean code with beautiful interfaces. When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new web technologies.</p>
+            <div class="about-text">
+                <p>I'm a developer and designer based in San Francisco, passionate about creating intuitive and impactful digital experiences. With expertise in both front-end and back-end development, I bring ideas to life through clean code and thoughtful design.</p>
+                <p style="margin-top: 2rem">When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
             </div>
         </div>
+    </section>
 
-        <h3 class="section-title">Skills</h3>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h4>Frontend</h4>
-                <p>React, Vue.js, HTML5, CSS3, JavaScript</p>
-            </div>
-            <div class="skill-card">
-                <h4>Backend</h4>
-                <p>Node.js, Python, PostgreSQL, MongoDB</p>
-            </div>
-            <div class="skill-card">
-                <h4>Tools</h4>
-                <p>Git, Docker, AWS, Figma</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="projects">
-        <h2 class="section-title">Recent Projects</h2>
-        <div class="projects-grid">
+    <section class="section" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid">
             <div class="project-card">
                 <img src="/api/placeholder/400/320" alt="Project 1">
                 <div class="project-content">
-                    <h3>E-commerce Platform</h3>
-                    <p>A full-stack e-commerce solution built with React and Node.js, featuring real-time inventory management and secure payment processing.</p>
+                    <h3>Design System</h3>
+                    <p>A comprehensive design system built with React, featuring reusable components and consistent styling patterns.</p>
                 </div>
             </div>
             <div class="project-card">
                 <img src="/api/placeholder/400/320" alt="Project 2">
                 <div class="project-content">
-                    <h3>Task Management App</h3>
-                    <p>A collaborative task management tool with real-time updates, built using Vue.js and Firebase.</p>
+                    <h3>AI Assistant</h3>
+                    <p>An intelligent chatbot powered by machine learning, helping users automate daily tasks and find information quickly.</p>
                 </div>
             </div>
             <div class="project-card">
                 <img src="/api/placeholder/400/320" alt="Project 3">
                 <div class="project-content">
-                    <h3>Weather Dashboard</h3>
-                    <p>A responsive weather application that provides real-time weather data and forecasts using OpenWeatherMap API.</p>
+                    <h3>Analytics Dashboard</h3>
+                    <p>A real-time analytics platform that helps businesses track and visualize their key performance metrics.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container" id="contact">
+    <section class="section" id="contact">
         <h2 class="section-title">Get in Touch</h2>
         <form class="contact-form">
             <div class="form-group">
@@ -285,14 +325,14 @@
             </div>
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
-    </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 John Doe. All rights reserved.</p>
+        <p style="color: rgba(255, 255, 255, 0.8);">&copy; 2025 John Doe. All rights reserved.</p>
         <div class="social-links">
-            <a href="#">GitHub</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Twitter</a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 </body>
