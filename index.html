@@ -1,4 +1,125 @@
-<html>
-  <head>Hello World</head>
-  <body>Hello World! This is my test page.</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Sample Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header>
+        <h1>Welcome to Our Website</h1>
+        <p>Your one-stop destination for amazing products</p>
+    </header>
+
+    <div class="container">
+        <h2>Featured Products</h2>
+        <div class="card-grid">
+            <div class="card">
+                <img src="/api/placeholder/400/320" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p><strong>Price: $99.99</strong></p>
+            </div>
+            <div class="card">
+                <img src="/api/placeholder/400/320" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p><strong>Price: $149.99</strong></p>
+            </div>
+            <div class="card">
+                <img src="/api/placeholder/400/320" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p><strong>Price: $199.99</strong></p>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 3rem;">About Us</h2>
+        <p>We are a passionate team dedicated to providing the best products and services to our customers. Our commitment to quality and customer satisfaction sets us apart from the competition.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Sample Website. All rights reserved.</p>
+    </footer>
+</body>
 </html>
